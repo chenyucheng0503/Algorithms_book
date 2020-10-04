@@ -23,7 +23,21 @@ public class BinarySearch
         return -1;
     }
 
-    public static void main(String[] args) {
+    public static int rank(int key, int[] a, int low, int high)
+    {
+        if (low > high)
+            return -1;
+        int mid = low + (high-low) / 2;
+        if (key < a[mid])
+            return rank(key, a, low, mid-1);
+        else if (key > a[mid])
+            return rank(key, a, mid+1, high);
+        else
+            return mid;
+    }
+
+    public static void main(String[] args)
+    {
         int[] whiteList = In.readInts(args[0]);
         //对白名单排序
         Arrays.sort(whiteList);
