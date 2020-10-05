@@ -1,6 +1,4 @@
-package Chapter1;
-
-import algs4.*;
+package Chapter1_1;
 
 public class Ex1_1_8 {
     public static void main(String[] args) {

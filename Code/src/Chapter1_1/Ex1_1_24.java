@@ -1,4 +1,4 @@
-package Chapter1;
+package Chapter1_1;
 
 public class Ex1_1_24 {
     public static int Euclid(int p, int q, int depth){

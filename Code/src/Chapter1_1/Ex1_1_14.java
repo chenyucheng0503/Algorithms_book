@@ -1,4 +1,4 @@
-package Chapter1;
+package Chapter1_1;
 
 public class Ex1_1_14 {
     public static int lg(int N) {

@@ -1,4 +1,4 @@
-package Chapter1;
+package Chapter1_1;
 
 public class Ex1_1_18 {
     public static int mystery(int a, int b) {

@@ -1,4 +1,4 @@
-package Chapter1;
+package Chapter1_1;
 
 import java.util.Arrays;
 import algs4.*;

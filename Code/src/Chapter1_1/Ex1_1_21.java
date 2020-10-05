@@ -1,4 +1,4 @@
-package Chapter1;
+package Chapter1_1;
 
 public class Ex1_1_21 {
     public static void printNameInt(String name, int grade1, int grade2){

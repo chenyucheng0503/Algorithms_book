@@ -1,4 +1,4 @@
-package Chapter1;
+package Chapter1_1;
 
 public class Ex1_1_9 {
     public static String toBinaryString(int N){
