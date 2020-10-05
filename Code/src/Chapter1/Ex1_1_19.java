@@ -2,7 +2,6 @@ package Chapter1;
 
 import algs4.*;
 
-
 public class Ex1_1_19 {
         static final int M = 100;
         static long[] arr = new long[M];
