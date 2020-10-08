@@ -6,21 +6,33 @@ public class Ex1_1_29 {
     {
         int low = 0;
         int high = a.length - 1;
-        int max_number = 0;
-
         while (low <= high)
         {
             int mid = low + (high-low) / 2;
             if (key < a[mid])
-            {
                 high = mid - 1;
-                max_number = mid - 1;
-            }
             else if(key > a[mid])
                 low = mid + 1;
             else
-                return mid;
+            {
+                while (a[mid] == a[mid-1] && mid > 0)
+                    mid -= 1;
+            }
+            return mid;
         }
         return -1;
     }
+
+       public static int count (int key, int[] a)
+       {
+           int cnt = 0;
+           //找到最小的i
+           int i = rank(key,a);
+           while(a[i]==a[i+1] && i<a.length)
+           {
+               cnt++;
+               i++;
+           }
+           return cnt;
+       }
 }
