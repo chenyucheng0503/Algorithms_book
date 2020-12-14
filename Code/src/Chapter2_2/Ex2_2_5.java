@@ -1,5 +1,4 @@
 package Chapter2_2;
-import algs4.*;
 
 /**
  * @author GrahamSa (https://github.com/chenyucheng0503)
@@ -8,7 +7,7 @@ import algs4.*;
  * @createTime 2020年12月13日 21:18:00
  */
 
-public class Ex_2_2_5 {
+public class Ex2_2_5 {
     // 输出子数组的大小
     private static void merge(int lo, int mid, int hi) {
         System.out.print(hi - lo + 1);
@@ -43,9 +42,9 @@ public class Ex_2_2_5 {
     public static void main(String[] args) {
         int n = 39;
         String[] a = new String[n];
-        Ex_2_2_5.topDownMergesort(a);
+        Ex2_2_5.topDownMergesort(a);
         System.out.println();
-        Ex_2_2_5.bottomUpMergesort(a);
+        Ex2_2_5.bottomUpMergesort(a);
         System.out.println();
     }
 }

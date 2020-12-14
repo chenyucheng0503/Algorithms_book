@@ -39,7 +39,6 @@ public class SelectionSort extends ExampleSort {
         StdOut.println();
     }
 
-
     public static void main(String[] args) {
         // 从标准输入读取字符串，将它们排序并输出
 //            String[] a = StdIn.readAllStrings();
