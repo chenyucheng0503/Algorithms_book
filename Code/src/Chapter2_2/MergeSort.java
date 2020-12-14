@@ -55,6 +55,7 @@ public class MergeSort {
     // 自顶向下归并
     public static  void sort(Comparable[] a){
         Comparable[] aux = new Comparable[a.length];
+        sort(a, 0, a.length - 1);
     }
 
     // 自底向上归并
