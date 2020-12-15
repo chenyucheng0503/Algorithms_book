@@ -15,38 +15,6 @@ public class Ex2_2_12 {
     /** 构造函数 */
     public Ex2_2_12() {}
 
-    private static void merge(Comparable[] a, int low, int mid, int high, Comparable[] aux){
-        // 断言初始数组有序
-        assert isSorted(a, low, mid);
-        assert isSorted(a, mid+1, high);
-
-        // 将a复制一份到aux
-        arraycopy(a, low, aux, 0, high-low+1);
-
-        // 记录两个数组的游标
-        int m = low;
-        int n = mid + 1;
-
-        // 简便写法（书中代码）
-        for (int i = low; i <= high; i++) {
-            if (m > mid){
-                a[i] = aux[n++];
-            }
-            else if (n > high){
-                a[i] = aux[m++];
-            }
-            else if (less(aux[m], aux[n])) {
-                a[i] = aux[m++];
-            }
-            else{
-                a[i] = aux[n++];
-            }
-        }
-
-        // 后置条件
-        assert isSorted(a, low, high);
-    }
-
     /** 专用Merge函数，只需要 N/M 空间的辅助函数aux */
     private static void advancedMerge(Comparable[] a, int low, int mid, int high, Comparable[] aux){
         // 断言初始数组有序
@@ -57,20 +25,20 @@ public class Ex2_2_12 {
         arraycopy(a, mid+1, aux, 0,high-mid);
 
         // 初始化游标，m为a[low,mid]的最后一位，n为aux[mid+1,high]的最后一位
-        int m = mid-low, n = high-mid-1;
+        int m = mid, n = high-mid-1;
         // 倒着从后往前走，直接在原数组上进行覆盖
         while (high > low) {
             if (less(a[m], aux[n]))
                 a[high--] = aux[n--];
             else
-                a[high--] = a[low + (m--)];
+                a[high--] = a[m--];
 
             // 当 aux 游标走到尽头时，可以直接break，因为这意味着a上的剩余部分均小于aux[0]并有序
             if (n < 0)
                 break;
             // 当 a 的游标走到尽头时，说明a[0]比aux剩余部分要大，所以a的剩余部分要替换成aux
             else if (m < low){
-                arraycopy(aux, 0, a, low, n);
+                arraycopy(aux, 0, a, low, n+1);
                 break;
             }
         }
@@ -88,10 +56,16 @@ public class Ex2_2_12 {
 
         // 对每一个块内部进行归并
         for (int i = 0; i < M; i++) {
-            sort(a, 0 + i*(N/M), N/M-1 + i*(N/M), aux);
+            sort(a, i*(N/M), N/M-1 + i*(N/M), aux);
         }
 
         // 对块整合归并
+        for (int i = 0; i < M-1; i++) {
+            advancedMerge(a, 0, N/M-1 + i*N/M, 2*N/M-1 + i*N/M, aux);
+        }
+
+        // 后置断言
+        assert isSorted(a);
     }
 
     /** 重载的自顶向下归并 */
@@ -152,11 +126,16 @@ public class Ex2_2_12 {
 
     /** main */
     public static void main(String[] args) {
-        Comparable[] a = {8,4,6,7,1,3,2,9,5};
-//        selectSortBlock(a, 3);
-//        Comparable[] aux = new Comparable[4];
-//        advancedMerge(a, 0, 3, 7, aux);
-        sort(a, 3);
+        // 随机生成100个 1-100 的整数
+        Comparable[] a = new Comparable[100];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = 1 + (int)(Math.random() * 100);
+        }
+
+        // 将 a 排序
+        sort(a, 10);
+
+        // show(a)
         for (int i = 0; i < a.length; i++){
             System.out.printf(a[i] + " ");
         }
