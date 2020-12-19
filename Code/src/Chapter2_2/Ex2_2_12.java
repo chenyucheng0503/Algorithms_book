@@ -6,8 +6,9 @@ import static java.lang.System.arraycopy;
  * @author GrahamSa (https://github.com/chenyucheng0503)
  * @ClassName Ex2_2_12.java
  * @Description 次线性的额外空间。用大小 M 将数组分为 N/M 块（简单起见，设 M 是 N 的约数）。实现一个 归并方法，使之所需的额外空间减少到 max( M , N / M )：(i) 可以先将一个块看做一个元素，将块的第一个元素作为块的主键，用选择排序将块排序；(ii) 遍历数组，将第一块和第二块归并，完成后将第二块和第三块归并，等等。
- * 这道题网上的参考资料不多，不保证正确
- * Thanks to https://softwareengineering.stackexchange.com/questions/179431/sublinear-extra-space-mergesort
+ * @Reference 这道题网上的参考资料不多，不保证正确
+*             https://softwareengineering.stackexchange.com/questions/179431/sublinear-extra-space-mergesort
+ *            https://www.cnblogs.com/longjin2018/p/9860095.html 参考的不多 是另一种思路
  * @createTime 2020年12月14日 10:31:00
  */
 
