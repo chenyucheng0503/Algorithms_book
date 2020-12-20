@@ -5,7 +5,7 @@ import java.util.Iterator;
 /**
  * @author GrahamSa (https://github.com/chenyucheng0503)
  * @ClassName Bag_Example.java
- * @Description
+ * @Description 求一堆数的平均数 并求他们的标准差。由于与顺序无关，所以可以用bag
  * @References
  * @createTime 2020年12月19日 14:51:00
  */
@@ -13,7 +13,8 @@ import java.util.Iterator;
 public class Bag_Example {
     public static void main(String[] args) {
         Bag<Double> numbers = new Bag<Double>();
-        while (!StdIn.isEmpty()) numbers.add(StdIn.readDouble());
+        while (!StdIn.isEmpty())
+            numbers.add(StdIn.readDouble());
         int N = numbers.size();
         double sum = 0.0;
         for (double x : numbers)
