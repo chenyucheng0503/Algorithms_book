@@ -6,7 +6,7 @@ public class InsertionSort extends ExampleSort{
         //将a[]升序排列
         int N = a.length;
         for (int i = 0; i < N; i++) {
-            for (int j = i; j > 0 && less(a[j], a[j-1]); j++) {
+            for (int j = i; j > 0 && less(a[j], a[j-1]); j--) {
                 exch(a, j, j-1);
             }
         }

@@ -125,7 +125,6 @@ public class Ex2_2_12 {
         return true;
     }
 
-    /** main */
     public static void main(String[] args) {
         // 随机生成100个 1-100 的整数
         Comparable[] a = new Comparable[100];
